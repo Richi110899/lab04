@@ -10,8 +10,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 
 class Scaffold : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,47 +29,62 @@ class Scaffold : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScaffoldExample() {
-    var presses by remember { mutableIntStateOf(0) } // Estado para contar clics del botón flotante
+    var presses by remember { mutableStateOf(0) } // Estado para contar clics del botón flotante
 
     Scaffold(
         topBar = { // Barra superior de la interfaz
             TopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer, // Color de fondo de la barra
-                    titleContentColor = MaterialTheme.colorScheme.primary, // Color del texto del título
+                    containerColor = Color.Black, // Color de fondo de la barra
+                    titleContentColor = Color.White, // Color del texto del título
                 ),
                 title = {
-                    Text("Top app bar") // Título de la barra superior
+                    Text(
+                        "Top app bar", // Título de la barra superior
+                        fontSize = 20.sp, // Tamaño del texto
+                        fontWeight = FontWeight.Bold // Grosor del texto
+                    )
                 }
             )
         },
         bottomBar = { // Barra inferior de la interfaz
             BottomAppBar(
-                containerColor = MaterialTheme.colorScheme.primaryContainer, // Color de fondo de la barra
-                contentColor = MaterialTheme.colorScheme.primary, // Color del texto en la barra
+                containerColor = Color.DarkGray, // Color de fondo de la barra
+                contentColor = Color.White, // Color del texto en la barra
             ) {
                 Text(
                     modifier = Modifier
                         .fillMaxWidth(), // Asegura que el texto ocupe el ancho completo de la barra
                     textAlign = TextAlign.Center, // Centra el texto
                     text = "Bottom app bar", // Texto de la barra inferior
+                    fontSize = 18.sp, // Tamaño del texto
+                    fontWeight = FontWeight.Bold // Grosor del texto
                 )
             }
         },
         floatingActionButton = { // Botón flotante de acción
-            FloatingActionButton(onClick = { presses++ }) { // Incrementa el contador al hacer clic
-                Icon(Icons.Default.Add, contentDescription = "Add") // Ícono del botón flotante
+            FloatingActionButton(
+                onClick = { presses++ },
+                containerColor = Color.Magenta // Color de fondo del botón flotante
+            ) {
+                Icon(Icons.Default.Add, contentDescription = "Add", tint = Color.White) // Ícono del botón flotante
             }
         }
     ) { innerPadding -> // Contenido principal, ajustado por el relleno interno del Scaffold
         Column(
             modifier = Modifier
-                .padding(innerPadding), // Aplica relleno interno para ajustar el contenido alrededor de las barras
-            verticalArrangement = Arrangement.spacedBy(16.dp), // Espacio vertical entre los elementos
+                .padding(innerPadding)
+                .fillMaxSize(), // Asegura que el contenido ocupe el tamaño completo
+            verticalArrangement = Arrangement.Center, // Centra verticalmente el contenido
+            horizontalAlignment = Alignment.CenterHorizontally // Centra horizontalmente el contenido
         ) {
             Text(
-                modifier = Modifier.padding(8.dp), // Padding alrededor del texto
-                text = "Este es un curso de Programación móvil en Tecsup 2024".trimIndent(), // Contenido del texto
+                modifier = Modifier.padding(16.dp), // Padding alrededor del texto
+                text = "Este es un curso de Programación móvil en Tecsup 2024",
+                fontSize = 20.sp, // Tamaño del texto
+                fontWeight = FontWeight.Normal, // Grosor del texto
+                color = Color.Black, // Color del texto
+                textAlign = TextAlign.Center // Alineación del texto
             )
         }
     }
