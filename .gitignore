@@ -1,0 +1,24 @@
+# Android Studio
+*.iml
+.gradle/
+.idea/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# Mac system files
+.DS_Store
+
+# Build output
+/build/
+.externalNativeBuild/
+.cxx/
+
+# Local configuration file (sdk path, etc.)
+local.properties
+
+# Captures (screenshots, etc.)
+captures/
