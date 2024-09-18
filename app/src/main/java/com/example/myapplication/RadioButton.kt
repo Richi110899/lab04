@@ -37,7 +37,7 @@ fun RadioButtonExample() {
         }
 
         // Nuevo comentario agregado aquí
-        // Este es un comentario de la rama_modificacion_B
+        // Este es un comentario de la rama_modificacion_A
 
         Row(modifier = Modifier.padding(vertical = 8.dp)) {
             RadioButton(
