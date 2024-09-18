@@ -93,5 +93,5 @@ fun ScaffoldExample() {
 @Preview(showBackground = true)
 @Composable
 fun ScaffoldPreview() {
-    ScaffoldExample() // Vista previa del diseño del Scaffold
+    ScaffoldExample() // Vista previa del diseño del Scaffold_A
 }
