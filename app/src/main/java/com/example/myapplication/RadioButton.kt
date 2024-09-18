@@ -29,13 +29,21 @@ fun RadioButtonExample() {
         // Opciones del RadioButton
         Row(modifier = Modifier.padding(vertical = 8.dp)) {
             RadioButton(
-                selected = (selectedOption == "Option 1"),  // Verifica si esta opción está seleccionada
-                onClick = { selectedOption = "Option 1" }  // Actualiza la opción seleccionada
+                selected = (selectedOption == "Option 1"),
+                onClick = { selectedOption = "Option 1" }
             )
             Spacer(modifier = Modifier.width(8.dp))  // Espacio entre el RadioButton y el texto
             Text("Option 1", modifier = Modifier.align(Alignment.CenterVertically))  // Texto de la opción
         }
 
+        Row(modifier = Modifier.padding(vertical = 8.dp)) {
+            RadioButton(
+                selected = (selectedOption == "Option 2"),
+                onClick = { selectedOption = "Option 2" }
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text("Option 2", modifier = Modifier.align(Alignment.CenterVertically))
+        }
         Row(modifier = Modifier.padding(vertical = 8.dp)) {
             RadioButton(
                 selected = (selectedOption == "Option 2"),  // Verifica si esta opción está seleccionada
